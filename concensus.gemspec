@@ -15,5 +15,10 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Concensus::VERSION
     
+    
   gem.add_development_dependency "rspec"
+  
+  %w{rspec activesupport httparty rubyzip rgeo rgeo-shapefile rgeo-geojson}.each do |x|
+    gem.add_dependency x
+  end
 end

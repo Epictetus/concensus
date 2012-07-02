@@ -2,6 +2,13 @@ PATH
   remote: .
   specs:
     concensus (0.0.1)
+      activesupport
+      httparty
+      rgeo
+      rgeo-geojson
+      rgeo-shapefile
+      rspec
+      rubyzip
 
 GEM
   remote: https://rubygems.org/
@@ -37,11 +44,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport
   concensus!
-  httparty
-  rgeo
-  rgeo-geojson
-  rgeo-shapefile
   rspec
-  rubyzip
