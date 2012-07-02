@@ -1,12 +1,10 @@
 PATH
   remote: .
   specs:
-    concensus (0.0.1)
+    concensus (0.0.2)
       activesupport
-      httparty
-      rgeo
-      rgeo-geojson
-      rgeo-shapefile
+      dbf
+      georuby
       rspec
       rubyzip
 
@@ -18,18 +16,9 @@ GEM
       multi_json (~> 1.0)
     dbf (1.7.5)
     diff-lcs (1.1.3)
-    httparty (0.8.3)
-      multi_json (~> 1.0)
-      multi_xml
+    georuby (1.9.7)
     i18n (0.6.0)
     multi_json (1.3.6)
-    multi_xml (0.5.1)
-    rgeo (0.3.13)
-    rgeo-geojson (0.2.3)
-      rgeo (>= 0.3.7)
-    rgeo-shapefile (0.2.3)
-      dbf (>= 1.7.0)
-      rgeo (>= 0.3.3)
     rspec (2.10.0)
       rspec-core (~> 2.10.0)
       rspec-expectations (~> 2.10.0)

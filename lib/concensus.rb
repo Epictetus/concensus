@@ -7,7 +7,7 @@ require "concensus/state"
 require "concensus/state_legislative"
 require "concensus/congressional"
 require "concensus/school"
-require "rgeo/extras"
+require "geo_ruby/simple_features"
 require "active_support"
 require "zip/zip"
 

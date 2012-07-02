@@ -2,9 +2,9 @@ require 'concensus'
 
 describe Concensus do
   
-   it "test interactively" do
-     p Concensus::Place.find("CA", "Berkeley").geometry.to_array
-   end
+   #it "test interactively" do
+   #  p Concensus::Place.find("CA", "Berkeley").geometry
+   #end
 
   describe "configuration" do
     it "should have a root url" do

@@ -1,5 +1,7 @@
 require "zip/zip"
-require "rgeo/shapefile"
+require "geo_ruby"
+require "geo_ruby/shp"
+require "open-uri"
 
 module Concensus  
   class Resource
@@ -38,25 +40,26 @@ module Concensus
 
     def self.process_find(shp_file_path, identifier, state, name = nil)
       
+      # Prevent annoying georuby error messages
+      previous_stderr, $stderr = $stderr, StringIO.new
+      
       if name
-        RGeo::Shapefile::Reader.open(shp_file_path) do |shp|
-          matched_shape = nil
-          shp.each do |x|
-            if x.attributes[identifier].match(name)
-              matched_shape = x
-              break
-            end
-          end
+        GeoRuby::Shp4r::ShpFile.open(shp_file_path) do |shp|
+          matched_shape = shp.find {|x| x.data[identifier].match(name) }
           raise StandardError if !matched_shape
-          return Resource.new(matched_shape.attributes[identifier], matched_shape.geometry, state)
+          return Resource.new(matched_shape.data[identifier], matched_shape.geometry, state)
         end
       else
         places = []
-        RGeo::Shapefile::Reader.open(shp_file_path).each do |shp|
-          places << Resource.new(shp.attributes[identifier], shp.geometry, state)
+        GeoRuby::Shp4r::ShpFile.open(shp_file_path).each do |shp|
+          places << Resource.new(shp.data[identifier], shp.geometry, state)
         end
         return places
       end
+      
+      # Restore previous value of stderr
+      $stderr.string
+      $stderr = previous_stderr
       
     end
 
