@@ -18,7 +18,7 @@ module Concensus
     
     def self.get_and_unzip(uri)
       safe_filename = uri.gsub("/", "_").gsub(".zip", "")
-      zipped_file_path = "#{Concensus::configuration.tmp_dir}/#{safe_filename}.zip"
+      zipped_file_path = "#{Concensus::configuration.tmp_dir}#{safe_filename}.zip"
       
       if !File.exists?(zipped_file_path)
         zipped_file = File.new(zipped_file_path, "w")
