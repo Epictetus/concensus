@@ -14,8 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "concensus"
   gem.require_paths = ["lib"]
   gem.version       = Concensus::VERSION
-  
-  gem.add_dependency "nofxx-georuby"
-  
+    
   gem.add_development_dependency "rspec"
 end
