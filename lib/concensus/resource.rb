@@ -38,21 +38,21 @@ module Concensus
       return "#{Concensus::configuration.tmp_dir}#{shp_file_name}"
     end
 
-    def self.process_find(shp_file_path, state, name = nil)
+    def self.process_find(shp_file_path, identifier, state, name = nil)
       
       # Prevent annoying georuby error messages
       previous_stderr, $stderr = $stderr, StringIO.new
       
       if name
         GeoRuby::Shp4r::ShpFile.open(shp_file_path) do |shp|
-           matched_shape = shp.find {|x| x.data["NAME10"].match(name) }
+           matched_shape = shp.find {|x| x.data[identifier].match(name) }
            raise StandardError if !matched_shape
-           return Resource.new(matched_shape.data["NAME10"], matched_shape.geometry, state)
+           return Resource.new(matched_shape.data[identifier], matched_shape.geometry, state)
         end
       else
         places = []
         GeoRuby::Shp4r::ShpFile.open(shp_file_path).each do |shp|
-          places << Resource.new(shp.data["NAME10"], shp.geometry, state)
+          places << Resource.new(shp.data[identifier], shp.geometry, state)
         end
         return places
       end
