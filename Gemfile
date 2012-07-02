@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gemspec
 
 gem "activesupport"
-gem "nokogiri"
 gem "httparty"
 gem "rubyzip"
 gem "georuby"
+gem "dbf"

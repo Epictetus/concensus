@@ -22,25 +22,30 @@ describe Concensus do
     end
   end  
   
-  it "test interactively" do
-    p Concensus::Place.find("CA", "Berkeley").geometry.to_json[0]
+  # it "test interactively" do
+  #   p Concensus::Place.find("CA", "Berkeley").geometry.to_json
+  # end
+  
+  it "should be able to find all places for a state" do
+    Concensus::Place.find_all("CA").should be_instance_of(Array)
   end
   
-  #it "should be able to find all places for a state" do
-  #  Concensus::Place.find_all("CA").should be_instance_of(Array)
-  #end
-  #
-  #it "should be able to find one places for a state" do
-  #  Concensus::Place.find("CA", "Berkeley").should be_instance_of(Concensus::Place)
-  #end
-  #
-  #it "should be able to find all counties for a state" do
-  #  Concensus::County.find_all("CA").should be_instance_of(Array)
-  #end
-  #
-  #it "should be able to find one county for a state" do
-  #  Concensus::County.find("CA", "Alameda").should be_instance_of(Concensus::Place)
-  #end
+  it "should be able to find one places for a state" do
+    Concensus::Place.find("CA", "Berkeley").should be_instance_of(Concensus::Resource)
+  end
+  
+  it "should be able to find all counties for a state" do
+    Concensus::County.find_all("CA").should be_instance_of(Array)
+  end
+  
+  it "should be able to find one county for a state" do
+    Concensus::County.find("CA", "Alameda").should be_instance_of(Concensus::Resource)
+  end
+  
+  it "should be able to find a state" do
+    Concensus::State.find("CA").should be_instance_of(Concensus::Resource)
+  end
+
   
  
 end

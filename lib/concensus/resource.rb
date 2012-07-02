@@ -18,12 +18,6 @@ module Concensus
       @state = state
     end
     
-    def self.get_shp_and_convert(uri, safe_filename)
-      shp_file = get_and_unzip(uri, safe_filename)
-      
-      return shp_file
-    end
-    
     def self.get_and_unzip(uri, safe_filename)
       zipped_file_path = "#{Concensus::configuration.tmp_dir}/#{safe_filename}.zip"
       
@@ -46,19 +40,27 @@ module Concensus
     end
 
     def self.process_find(shp_file_path, state, name = nil)
+      
+      # Prevent annoying georuby error messages
+      previous_stderr, $stderr = $stderr, StringIO.new
+      
       if name
         GeoRuby::Shp4r::ShpFile.open(shp_file_path) do |shp|
            matched_shape = shp.find {|x| x.data["NAME10"].match(name) }
            raise StandardError if !matched_shape
-           return Place.new(matched_shape.data["NAME10"], matched_shape.geometry, state)
+           return Resource.new(matched_shape.data["NAME10"], matched_shape.geometry, state)
         end
       else
         places = []
         GeoRuby::Shp4r::ShpFile.open(shp_file_path).each do |shp|
-          places << Place.new(shp.data["NAME10"], shp.geometry, state)
+          places << Resource.new(shp.data["NAME10"], shp.geometry, state)
         end
         return places
       end
+      
+      # Restore previous value of stderr
+      $stderr.string
+      $stderr = previous_stderr
     end
 
     def self.state_code_to_id(state_code)
