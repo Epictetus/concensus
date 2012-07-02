@@ -19,6 +19,9 @@ describe Concensus do
       before do
         Concensus::configuration.year = 2000
       end
+      after do
+        Concensus::configuration.year = 2010        
+      end
       it "should be updated" do
         Concensus::configuration.year.should == 2000
         Concensus::configuration.root_url.should match(/2000/)
