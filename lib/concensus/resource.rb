@@ -17,7 +17,8 @@ module Concensus
       @year = Concensus::configuration.year
     end
     
-    def self.get_and_unzip(uri, safe_filename)
+    def self.get_and_unzip(uri)
+      safe_filename = uri.gsub("/", "_").gsub(".zip", "")
       zipped_file_path = "#{Concensus::configuration.tmp_dir}/#{safe_filename}.zip"
       
       if !File.exists?(zipped_file_path)
@@ -25,17 +26,17 @@ module Concensus
         zipped_file.write(HTTParty.get(Concensus::configuration.root_url + uri))
       end
       
-      unzipped_files = Zip::ZipFile.open(zipped_file_path)
+      if !already_unzipped?(zipped_file_path)
+        unzipped_files = Zip::ZipFile.open(zipped_file_path)
       
-      unzipped_files.each do |x|
-        file = File.new("#{Concensus::configuration.tmp_dir}#{x.to_s}", "w")
-        file.write(x.get_input_stream.read)
-        file.close
+        unzipped_files.each do |x|
+          file = File.new(Concensus::configuration.tmp_dir + safe_filename + file_extension(x.to_s), "w")
+          file.write(x.get_input_stream.read)
+          file.close
+        end
       end
       
-      shp_file_name = unzipped_files.select { |x| x.to_s.match(/\.shp$/) }[0]
-      
-      return "#{Concensus::configuration.tmp_dir}#{shp_file_name}"
+      return "#{Concensus::configuration.tmp_dir}#{safe_filename}.shp"
     end
 
     def self.process_find(shp_file_path, identifier, state, name = nil)
@@ -64,6 +65,21 @@ module Concensus
 
     def self.state_code_to_id(state_code)
       Concensus::configuration.census_state_ids[state_code]
+    end
+    
+    def self.already_unzipped?(zipped_file_path)
+      file_path_without_extension = filename_without_extension(zipped_file_path)
+      File.exists?("#{file_path_without_extension}.shp") &&
+      File.exists?("#{file_path_without_extension}.dbf") &&
+      File.exists?("#{file_path_without_extension}.shx")
+    end
+    
+    def self.filename_without_extension(filename)
+      filename.gsub(/\.[a-z]*$/, "")
+    end
+    
+    def self.file_extension(filename)
+      filename[/\.[a-z]*$/]
     end
     
   end
