@@ -11,6 +11,15 @@ module GeoRuby
         
         return coord_array
       end
+      
+      # Used for testing
+      def contains_point?(point)
+        self.each do |shape|
+          return true if shape.contains_point?(point)
+        end
+        
+        return false
+      end
     end
   end
 end

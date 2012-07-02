@@ -3,12 +3,10 @@ require "zip/zip"
 require "geo_ruby"
 require "geo_ruby/shp"
 
-module Concensus
+module Concensus  
   class Resource
     
-    attr_accessor :geometry
-    attr_accessor :name
-    attr_accessor :state
+    attr_accessor :geometry, :name, :state, :year
   
     include HTTParty
     
@@ -16,6 +14,7 @@ module Concensus
       @name = name
       @geometry = geometry
       @state = state
+      @year = Concensus::configuration.year
     end
     
     def self.get_and_unzip(uri, safe_filename)
