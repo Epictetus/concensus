@@ -1,4 +1,3 @@
-require "httparty"
 require "zip/zip"
 require "rgeo/shapefile"
 
@@ -6,9 +5,7 @@ module Concensus
   class Resource
     
     attr_accessor :geometry, :name, :state, :year
-  
-    include HTTParty
-    
+      
     def initialize(name, geometry, state)
       @name = name
       @geometry = geometry
@@ -22,7 +19,8 @@ module Concensus
       
       if !File.exists?(zipped_file_path)
         zipped_file = File.new(zipped_file_path, "wb")
-        zipped_file.write(HTTParty.get(Concensus::configuration.root_url + uri))
+        ext_file = open(Concensus::configuration.root_url + uri)
+        zipped_file.write(ext_file.read)
       end
       
       if !already_unzipped?(zipped_file_path)
