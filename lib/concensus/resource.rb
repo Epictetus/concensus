@@ -6,15 +6,15 @@ require "geo_ruby/shp"
 module Concensus
   class Resource
     
-    attr_accessor :coordinates
+    attr_accessor :geometry
     attr_accessor :name
     attr_accessor :state
   
     include HTTParty
     
-    def initialize(name, coordinates, state)
+    def initialize(name, geometry, state)
       @name = name
-      @coordinates = coordinates
+      @geometry = geometry
       @state = state
     end
     
@@ -61,5 +61,9 @@ module Concensus
       end
     end
 
+    def self.state_code_to_id(state_code)
+      Concensus::configuration.census_state_ids[state_code]
+    end
+    
   end
 end
