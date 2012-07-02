@@ -6,5 +6,6 @@ gemspec
 gem "activesupport"
 gem "httparty"
 gem "rubyzip"
-gem "georuby"
-gem "dbf"
+gem "rgeo"
+gem "rgeo-shapefile"
+gem "rgeo-geojson"
