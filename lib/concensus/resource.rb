@@ -21,7 +21,7 @@ module Concensus
       zipped_file_path = "#{Concensus::configuration.tmp_dir}#{safe_filename}.zip"
       
       if !File.exists?(zipped_file_path)
-        zipped_file = File.new(zipped_file_path, "w")
+        zipped_file = File.new(zipped_file_path, "wb")
         zipped_file.write(HTTParty.get(Concensus::configuration.root_url + uri))
       end
       
@@ -29,7 +29,7 @@ module Concensus
         unzipped_files = Zip::ZipFile.open(zipped_file_path)
       
         unzipped_files.each do |x|
-          file = File.new(Concensus::configuration.tmp_dir + safe_filename + file_extension(x.to_s), "w")
+          file = File.new(Concensus::configuration.tmp_dir + safe_filename + file_extension(x.to_s), "wb")
           file.write(x.get_input_stream.read)
           file.close
         end
