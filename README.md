@@ -30,7 +30,7 @@ It uses the [georuby](http://rubygems.org/gems/georuby) gem to convert the shape
 
 
 ### Full Documentation
-[http://www.googl.com]()
+[http://rubydoc.info/github/adamjacobbecker/concensus/](http://rubydoc.info/github/adamjacobbecker/concensus/)
 
 ### Notes
 
