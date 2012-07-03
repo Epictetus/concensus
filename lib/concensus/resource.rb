@@ -27,22 +27,6 @@ module Concensus
       @year = Concensus::configuration.year
     end
     
-    # Constructor that creates :find(state, name) and :find_all(state) methods for the caller's class.
-    def self.finder_by_state(uri, attribute_key)
-      
-      instance_eval %Q{
-        def self.find(state, name = nil)
-          shp_file_path = get_and_unzip("#{uri}")
-          return process_find(shp_file_path, "#{attribute_key}", state, name)      
-        end
-
-        def self.find_all(state)
-          find(state)       
-        end
-      }
-      
-    end
-    
     # Checks for census zipfile in temporary storage. If not there, downloads it.
     # Then, checks for unzipped files in temporary storage. If not there, unzips the archive.
     #

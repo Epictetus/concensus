@@ -7,6 +7,10 @@ describe Concensus do
       Concensus::configuration.root_url.should_not be_empty
     end
     
+    it "should have a short year" do
+      Concensus::configuration.short_year.should == "10"
+    end
+    
     describe "should be able to manually set the tmp file" do
       before { Concensus::configuration.tmp_dir = "tmp/concensustest/" }
       after do

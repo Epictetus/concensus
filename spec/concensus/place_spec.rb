@@ -3,12 +3,28 @@ require 'concensus'
 describe Concensus do
   describe "places" do
     
-    it "should be able to find all places for a state" do
-      Concensus::Place.find_all("CA").should be_instance_of(Array)
-    end
+    describe "2010" do
+      before { Concensus::configuration.year = 2010 }
+      
+      it "should be able to find all places for a state" do
+        Concensus::Place.find_all("CA").should be_instance_of(Array)
+      end
 
-    it "should be able to find one places for a state" do
-      Concensus::Place.find("CA", "Berkeley").should be_instance_of(Concensus::Resource)
+      it "should be able to find one places for a state" do
+        Concensus::Place.find("CA", "Berkeley").should be_instance_of(Concensus::Resource)
+      end
+    end
+    
+    describe "2011" do
+      before { Concensus::configuration.year = 2011 }
+      
+      it "should be able to find all places for a state" do
+        Concensus::Place.find_all("CA").should be_instance_of(Array)
+      end
+
+      it "should be able to find one places for a state" do
+        Concensus::Place.find("CA", "Berkeley").should be_instance_of(Concensus::Resource)
+      end
     end
     
   end

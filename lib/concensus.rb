@@ -15,6 +15,8 @@ module Concensus
 
   class ShapeNotFound < ConcensusError; end
   
-  class YearNotSupported < ConcensusError; end 
+  class YearNotSupported < ConcensusError; end
+  
+  class NoResourceForYear < ConcensusError; end 
 end
 

@@ -31,23 +31,58 @@ It uses the [georuby](http://rubygems.org/gems/georuby) gem to convert the shape
 
 ### List of Resources
 
-`Concensus::Place` (cities and other localities)
-
-`Concensus::County`
-
-`Concensus::State`
-
-`Concensus::School::Elementary`
-
-`Concensus::School::Secondary`
-
-`Concensus::School::Unified`
-
-`Concensus::StateLegislative::Upper`
-
-`Concensus::StateLegislative::Lower`
-
-`Concensus::Congressional`
+<table style="text-align: left;" cellpadding="5" border="1">
+	<tr>
+		<th></th>
+		<th>2011</th>
+		<th>2010</th>
+	</tr>
+    <tr>
+        <th>Concensus::Place</th>
+        <td>&check;</td>
+        <td>&check;</td>
+    </tr>
+    <tr>
+    	<th>Concensus::County</th>
+    	<td></td>
+    	<td>&check;</td>
+    </tr>
+    <tr>
+    	<th>Concensus::State</th>
+    	<td></td>
+    	<td>&check;</td>
+    </tr>
+    <tr>
+    	<th>Concensus::School::Elementary</th>
+    	<td></td>
+    	<td>&check;</td>
+    </tr>
+    <tr>
+    	<th>Concensus::School::Secondary</th>
+    	<td></td>
+    	<td>&check;</td>
+    </tr>
+    <tr>
+    	<th>Concensus::School::Unified</th>
+    	<td></td>
+    	<td>&check;</td>
+    </tr>
+    <tr>
+    	<th>Concensus::StateLegislative::Upper</th>
+    	<td>&check;</td>
+    	<td>&check;</td>
+    </tr>
+    <tr>
+    	<th>Concensus::StateLegislative::Lower</th>
+    	<td>&check;</td>
+    	<td>&check;</td>
+    </tr>
+    <tr>
+    	<th>Concensus::Congressional</th>
+    	<td></td>
+    	<td>&check;</td>
+    </tr>
+</table>
 
 
 
@@ -62,7 +97,6 @@ If you're using Rails, you'll probably want to create an initializer with `Conce
 
 #### Todo
 
-- Add support for switching Census year (already started, not fully implemented yet.)
 - Add more geographic areas, we only have a small bit of [what's available](http://www.census.gov/geo/www/tiger/tgrshp2010/availability.html).
 - Add support for storing downloaded and uncompressed .zips on S3. (Heroku has no persistent writable file storage.)
 

@@ -25,6 +25,10 @@ module Concensus
     def root_url
       "http://www2.census.gov/geo/tiger/TIGER#{@year}/"
     end
+    
+    def short_year
+      @year.to_s[-2, 2]
+    end
 
     def initialize
       @year = 2010
