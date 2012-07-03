@@ -12,10 +12,10 @@ It uses the [georuby](http://rubygems.org/gems/georuby) gem to convert the shape
 ## Use
 
 	Concensus::Place.find("CA", "Berkeley")
-		=> #<Concensus::Resource>
+		=> #<Concensus::Place>
 		
 	Concensus::Place.find_all("CA")
-		=> [#<Concensus::Resource>, #<Concensus::Resource>, etc...]	
+		=> [#<Concensus::Place>, #<Concensus::Place>, etc...]	
 	
 	california = Concensus::State.find("CA")
 	
