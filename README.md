@@ -54,17 +54,17 @@ It uses the [georuby](http://rubygems.org/gems/georuby) gem to convert the shape
     </tr>
     <tr>
     	<th>Concensus::School::Elementary</th>
-    	<td></td>
+    	<td>&check;</td>
     	<td>&check;</td>
     </tr>
     <tr>
     	<th>Concensus::School::Secondary</th>
-    	<td></td>
+    	<td>&check;</td>
     	<td>&check;</td>
     </tr>
     <tr>
     	<th>Concensus::School::Unified</th>
-    	<td></td>
+    	<td>&check;</td>
     	<td>&check;</td>
     </tr>
     <tr>
