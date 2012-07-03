@@ -62,7 +62,7 @@ module Concensus
     # 
     # @return [Array] returns array if we're looking for mulitple regions
     # @return [Resource] returns resource if we're looking for a specific region
-    def self.process_find(shp_file_path, identifier, state, name = nil)
+    def self.process_find(class_name, shp_file_path, identifier, state, name = nil)
       
       # Prevent annoying georuby error messages
       previous_stderr, $stderr = $stderr, StringIO.new
@@ -71,12 +71,12 @@ module Concensus
         GeoRuby::Shp4r::ShpFile.open(shp_file_path) do |shp|
           matched_shape = shp.find {|x| x.data[identifier].match(name) }
           raise ShapeNotFound if !matched_shape
-          return Resource.new(matched_shape.data[identifier], matched_shape.geometry, state)
+          return class_name.split('::').reduce(Concensus){|cls, c| cls.const_get(c) }.new(matched_shape.data[identifier], matched_shape.geometry, state)
         end
       else
         places = []
         GeoRuby::Shp4r::ShpFile.open(shp_file_path).each do |shp|
-          places << Resource.new(shp.data[identifier], shp.geometry, state)
+          places << class_name.split('::').reduce(Concensus){|cls, c| cls.const_get(c) }.new(shp.data[identifier], shp.geometry, state)
         end
         return places
       end

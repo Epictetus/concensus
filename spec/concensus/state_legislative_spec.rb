@@ -9,7 +9,7 @@ describe Concensus do
       
       describe "upper" do
         it "should be able to find an upper legislative district for a state" do
-          Concensus::StateLegislative::Upper.find("CA", "13").should be_instance_of(Concensus::Resource)
+          Concensus::StateLegislative::Upper.find("CA", "13").should be_instance_of(Concensus::StateLegislative::Upper)
         end
 
         it "should be able to find all upper legislative districts for a state" do
@@ -19,7 +19,7 @@ describe Concensus do
     
       describe "lower" do
         it "should be able to find a lower legislative district for a state" do
-          Concensus::StateLegislative::Lower.find("CA", "13").should be_instance_of(Concensus::Resource)
+          Concensus::StateLegislative::Lower.find("CA", "13").should be_instance_of(Concensus::StateLegislative::Lower)
         end
 
         it "should be able to find all lower legislative districts for a state" do
@@ -34,7 +34,7 @@ describe Concensus do
       
       describe "upper" do
         it "should be able to find an upper legislative district for a state" do
-          Concensus::StateLegislative::Upper.find("CA", "13").should be_instance_of(Concensus::Resource)
+          Concensus::StateLegislative::Upper.find("CA", "13").should be_instance_of(Concensus::StateLegislative::Upper)
         end
 
         it "should be able to find all upper legislative districts for a state" do
@@ -44,7 +44,7 @@ describe Concensus do
     
       describe "lower" do
         it "should be able to find a lower legislative district for a state" do
-          Concensus::StateLegislative::Lower.find("CA", "13").should be_instance_of(Concensus::Resource)
+          Concensus::StateLegislative::Lower.find("CA", "13").should be_instance_of(Concensus::StateLegislative::Lower)
         end
 
         it "should be able to find all lower legislative districts for a state" do

@@ -11,7 +11,7 @@ describe Concensus do
       end
 
       it "should be able to find one places for a state" do
-        Concensus::Place.find("CA", "Berkeley").should be_instance_of(Concensus::Resource)
+        Concensus::Place.find("CA", "Berkeley").should be_instance_of(Concensus::Place)
       end
     end
     
@@ -23,7 +23,7 @@ describe Concensus do
       end
 
       it "should be able to find one places for a state" do
-        Concensus::Place.find("CA", "Berkeley").should be_instance_of(Concensus::Resource)
+        Concensus::Place.find("CA", "Berkeley").should be_instance_of(Concensus::Place)
       end
     end
     

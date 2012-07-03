@@ -11,7 +11,7 @@ module Concensus
           shp_file_path = get_and_unzip("ELSD/tl_2011_#{state_code_to_id(state)}_elsd.zip")
         end
         
-        return process_find(shp_file_path, attribute_key, state, name)  
+        return process_find("School::Elementary", shp_file_path, attribute_key, state, name)  
       end
 
       def self.find_all(state)
@@ -29,7 +29,7 @@ module Concensus
           shp_file_path = get_and_unzip("SCSD/tl_2011_#{state_code_to_id(state)}_scsd.zip")
         end
         
-        return process_find(shp_file_path, attribute_key, state, name)  
+        return process_find("School::Secondary", shp_file_path, attribute_key, state, name)  
       end
 
       def self.find_all(state)
@@ -47,7 +47,7 @@ module Concensus
           shp_file_path = get_and_unzip("UNSD/tl_2011_#{state_code_to_id(state)}_unsd.zip")
         end
         
-        return process_find(shp_file_path, attribute_key, state, name)  
+        return process_find("School::Unified", shp_file_path, attribute_key, state, name)  
       end
 
       def self.find_all(state)

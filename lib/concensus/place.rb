@@ -11,7 +11,7 @@ module Concensus
         shp_file_path = get_and_unzip("PLACE/2010/tl_2010_#{state_code_to_id(state)}_place10.zip")
       end
 
-      return process_find(shp_file_path, attribute_key, state, name)      
+      return process_find("Place", shp_file_path, attribute_key, state, name)      
       
     end
     

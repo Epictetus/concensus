@@ -8,7 +8,7 @@ describe Concensus do
     end
 
     it "should be able to find one county for a state" do
-      Concensus::County.find("CA", "Alameda").should be_instance_of(Concensus::Resource)
+      Concensus::County.find("CA", "Alameda").should be_instance_of(Concensus::County)
     end
         
   end

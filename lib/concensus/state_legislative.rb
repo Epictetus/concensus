@@ -11,7 +11,7 @@ module Concensus
           shp_file_path = get_and_unzip("SLDU/2010/tl_2010_#{state_code_to_id(state)}_sldu10.zip")
         end
 
-        return process_find(shp_file_path, attribute_key, state, name)      
+        return process_find("StateLegislative::Upper", shp_file_path, attribute_key, state, name)      
       end
 
       def self.find_all(state)
@@ -29,7 +29,7 @@ module Concensus
           shp_file_path = get_and_unzip("SLDL/2010/tl_2010_#{state_code_to_id(state)}_sldl10.zip")
         end
 
-        return process_find(shp_file_path, attribute_key, state, name)      
+        return process_find("StateLegislative::Lower", shp_file_path, attribute_key, state, name)      
       end
 
       def self.find_all(state)
