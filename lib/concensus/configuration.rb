@@ -1,7 +1,6 @@
 module Concensus
   class Configuration
-    attr_accessor :year, :census_state_ids
-    attr_reader :tmp_dir, :default_tmp_dir
+    attr_reader :tmp_dir, :default_tmp_dir, :year, :census_state_ids
     
     # Temporary directory for storing .zip files and their contents.
     # It's best if this directory persists as a "cache" of sorts, so
@@ -12,6 +11,14 @@ module Concensus
     def tmp_dir=(x)
       @tmp_dir = x
       FileUtils.mkdir_p(@tmp_dir)
+    end
+    
+    def year=(x)
+      if [2010, 2011].include?(x)
+        @year = x
+      else
+        raise YearNotSupported
+      end
     end
     
     # This will become useful once we can switch years...

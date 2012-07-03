@@ -2,6 +2,8 @@ require "zip/zip"
 require "geo_ruby"
 require "geo_ruby/shp"
 require "open-uri"
+require "active_support"
+require 'active_support/inflector'
 
 module Concensus  
   class Resource
@@ -23,6 +25,22 @@ module Concensus
       @geometry = geometry
       @state = state
       @year = Concensus::configuration.year
+    end
+    
+    # Constructor that creates :find(state, name) and :find_all(state) methods for the caller's class.
+    def self.finder_by_state(uri, attribute_key)
+      
+      instance_eval %Q{
+        def self.find(state, name = nil)
+          shp_file_path = get_and_unzip("#{uri}")
+          return process_find(shp_file_path, "#{attribute_key}", state, name)      
+        end
+
+        def self.find_all(state)
+          find(state)       
+        end
+      }
+      
     end
     
     # Checks for census zipfile in temporary storage. If not there, downloads it.
@@ -68,7 +86,7 @@ module Concensus
       if name
         GeoRuby::Shp4r::ShpFile.open(shp_file_path) do |shp|
           matched_shape = shp.find {|x| x.data[identifier].match(name) }
-          raise StandardError if !matched_shape
+          raise ShapeNotFound if !matched_shape
           return Resource.new(matched_shape.data[identifier], matched_shape.geometry, state)
         end
       else

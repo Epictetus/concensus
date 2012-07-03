@@ -8,9 +8,13 @@ require "concensus/state_legislative"
 require "concensus/congressional"
 require "concensus/school"
 require "geo_ruby/simple_features"
-require "active_support"
 require "zip/zip"
 
 module Concensus
+  class ConcensusError < StandardError; end
+
+  class ShapeNotFound < ConcensusError; end
+  
+  class YearNotSupported < ConcensusError; end 
 end
 

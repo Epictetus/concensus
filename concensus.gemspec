@@ -19,7 +19,7 @@ Gem::Specification.new do |gem|
     gem.add_development_dependency x
   end
   
-  %w{rspec activesupport rubyzip georuby dbf}.each do |x|
+  %w{activesupport rubyzip georuby dbf}.each do |x|
     gem.add_dependency x
   end
 end

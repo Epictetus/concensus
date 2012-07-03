@@ -24,13 +24,23 @@ describe Concensus do
     end
     
     describe "should be able to manually set the year" do
-      before { Concensus::configuration.year = 2000 }
+      before { Concensus::configuration.year = 2011 }
       after { Concensus::configuration.year = 2010 }
       
       it "should be updated" do
-        Concensus::configuration.year.should == 2000
-        Concensus::configuration.root_url.should match(/2000/)
+        Concensus::configuration.year.should == 2011
+        Concensus::configuration.root_url.should match(/2011/)
       end
+    end
+    
+    it "should raise error for not supported years" do
+      expect do
+        Concensus::configuration.year = 2000
+      end.to raise_error(Concensus::YearNotSupported)
+    end
+    
+    it "shouldn't have changed the year" do
+      Concensus::configuration.year.should == 2010      
     end
   end  
    
