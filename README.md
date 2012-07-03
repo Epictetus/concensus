@@ -1,6 +1,6 @@
 # Concensus
 
-Concensus is a gem for reading the United States Census Bureau's TIGER/Line Shapefiles.
+Concensus is a gem for reading the United States Census Bureau's [TIGER/Line Shapefiles](http://www.census.gov/geo/www/tiger/).
 
 It uses the [georuby](http://rubygems.org/gems/georuby) gem to convert the shapefiles, which leaves you with access to all of the methods in the [georuby API](http://www.ruby-doc.org/gems/docs/g/georuby-1.9.7/GeoRuby/SimpleFeatures/MultiPolygon.html).
 
