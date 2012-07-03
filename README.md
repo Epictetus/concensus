@@ -15,7 +15,15 @@ It uses the [georuby](http://rubygems.org/gems/georuby) gem to convert the shape
 		=> #<Concensus::Place>
 		
 	Concensus::Place.find_all("CA")
-		=> [#<Concensus::Place>, #<Concensus::Place>, etc...]	
+		=> [#<Concensus::Place>, #<Concensus::Place>, etc...]
+			
+	Concensus::configuration.year = 2011
+		=> all subsequent requests will be for 2011
+		
+	Concensus::Place.find("NY", "New York")
+		=> 2011 Boundaries for New York City
+		
+	Concensus::configuration.year = 2010
 	
 	california = Concensus::State.find("CA")
 	
