@@ -39,48 +39,48 @@ It uses the [georuby](http://rubygems.org/gems/georuby) gem to convert the shape
 	</tr>
     <tr>
         <th>Concensus::Place</th>
-        <td>&check;</td>
-        <td>&check;</td>
+        <td>✓</td>
+        <td>✓</td>
     </tr>
     <tr>
     	<th>Concensus::County</th>
     	<td></td>
-    	<td>&check;</td>
+    	<td>✓</td>
     </tr>
     <tr>
     	<th>Concensus::State</th>
     	<td></td>
-    	<td>&check;</td>
+    	<td>✓</td>
     </tr>
     <tr>
     	<th>Concensus::School::Elementary</th>
-    	<td>&check;</td>
-    	<td>&check;</td>
+    	<td>✓</td>
+    	<td>✓</td>
     </tr>
     <tr>
     	<th>Concensus::School::Secondary</th>
-    	<td>&check;</td>
-    	<td>&check;</td>
+    	<td>✓</td>
+    	<td>✓</td>
     </tr>
     <tr>
     	<th>Concensus::School::Unified</th>
-    	<td>&check;</td>
-    	<td>&check;</td>
+    	<td>✓</td>
+    	<td>✓</td>
     </tr>
     <tr>
     	<th>Concensus::StateLegislative::Upper</th>
-    	<td>&check;</td>
-    	<td>&check;</td>
+    	<td>✓</td>
+    	<td>✓</td>
     </tr>
     <tr>
     	<th>Concensus::StateLegislative::Lower</th>
-    	<td>&check;</td>
-    	<td>&check;</td>
+    	<td>✓</td>
+    	<td>✓</td>
     </tr>
     <tr>
     	<th>Concensus::Congressional</th>
     	<td></td>
-    	<td>&check;</td>
+    	<td>✓</td>
     </tr>
 </table>
 
