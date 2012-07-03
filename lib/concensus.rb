@@ -1,12 +1,15 @@
-require "concensus/version"
 require "concensus/configuration"
 require "concensus/resource"
-require "concensus/place"
+require "concensus/version"
+
+require "concensus/congressional"
 require "concensus/county"
+require "concensus/place"
+require "concensus/school"
 require "concensus/state"
 require "concensus/state_legislative"
-require "concensus/congressional"
-require "concensus/school"
+require "concensus/zipcode"
+
 require "geo_ruby/simple_features"
 require "zip/zip"
 

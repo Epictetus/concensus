@@ -27,6 +27,13 @@ describe Concensus do
       end.to raise_error Concensus::NoResourceForYear
     end
     
+    it "should throw an error when a zipcode is requested for 2011" do
+      expect do
+        Concensus::configuration.year = 2011
+        Concensus::Zipcode.find("CA")
+      end.to raise_error Concensus::NoResourceForYear
+    end
+    
   end
   
 end

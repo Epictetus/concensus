@@ -1,7 +1,7 @@
 require 'concensus'
 
 describe Concensus do
-
+  
   describe "configuration" do
     it "should have a root url" do
       Concensus::configuration.root_url.should_not be_empty

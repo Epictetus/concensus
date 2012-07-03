@@ -46,19 +46,20 @@ It uses the [georuby](http://rubygems.org/gems/georuby) gem to convert the shape
 		<th>2010</th>
 	</tr>
     <tr>
-        <th>Concensus::Place</th>
-        <td>✓</td>
-        <td>✓</td>
+    	<th>Concensus::Congressional</th>
+    	<td></td>
+    	<td>✓</td>
     </tr>
+
     <tr>
     	<th>Concensus::County</th>
     	<td></td>
     	<td>✓</td>
     </tr>
     <tr>
-    	<th>Concensus::State</th>
-    	<td></td>
-    	<td>✓</td>
+        <th>Concensus::Place</th>
+        <td>✓</td>
+        <td>✓</td>
     </tr>
     <tr>
     	<th>Concensus::School::Elementary</th>
@@ -76,6 +77,11 @@ It uses the [georuby](http://rubygems.org/gems/georuby) gem to convert the shape
     	<td>✓</td>
     </tr>
     <tr>
+    	<th>Concensus::State</th>
+    	<td></td>
+    	<td>✓</td>
+    </tr>
+    <tr>
     	<th>Concensus::StateLegislative::Upper</th>
     	<td>✓</td>
     	<td>✓</td>
@@ -86,7 +92,7 @@ It uses the [georuby](http://rubygems.org/gems/georuby) gem to convert the shape
     	<td>✓</td>
     </tr>
     <tr>
-    	<th>Concensus::Congressional</th>
+    	<th>Concensus::Zipcode</th>
     	<td></td>
     	<td>✓</td>
     </tr>
