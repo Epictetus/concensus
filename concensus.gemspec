@@ -15,8 +15,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Concensus::VERSION
     
-    
-  gem.add_development_dependency "rspec"
+  %w{rspec yard redcarpet}.each do |x|
+    gem.add_development_dependency x
+  end
   
   %w{rspec activesupport rubyzip georuby dbf}.each do |x|
     gem.add_dependency x
