@@ -27,6 +27,28 @@ It uses the [georuby](http://rubygems.org/gems/georuby) gem to convert the shape
 		
 	california.geometry.to_array[0]
 		=> [[-119.000932, 33.535895], [-119.000932, 33.535823], ... ] 
+		
+
+### List of Resources
+
+`Concensus::Place` (cities and other localities)
+
+`Concensus::County`
+
+`Concensus::State`
+
+`Concensus::School::Elementary`
+
+`Concensus::School::Secondary`
+
+`Concensus::School::Unified`
+
+`Concensus::StateLegislative::Upper`
+
+`Concensus::StateLegislative::Lower`
+
+`Concensus::Congressional`
+
 
 
 ### Full Documentation
@@ -44,4 +66,4 @@ If you're using Rails, you'll probably want to create an initializer with `Conce
 - Add more geographic areas, we only have a small bit of [what's available](http://www.census.gov/geo/www/tiger/tgrshp2010/availability.html).
 - Add support for storing downloaded and uncompressed .zips on S3. (Heroku has no persistent writable file storage.)
 
-**Support development by sending links to sick house music mixes:** [@AdamJacobBecker](http://www.twitter.com/AdamJacobBecker)
+**Support development by sending links to siiick house mixes:** [@AdamJacobBecker](http://www.twitter.com/AdamJacobBecker)
