@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["ad@mbecker.cc"]
   gem.description   = %q{"A small tool for reading United States Census TIGER/Line Shapefiles."}
   gem.summary       = %q{"Converts U.S. Census Shapes to RGeo format."}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/adamjacobbecker/concensus"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
