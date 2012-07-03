@@ -6,10 +6,12 @@ module Concensus
         if Concensus::configuration.year == 2010
           attribute_key = "NAME10"
           shp_file_path = get_and_unzip("ELSD/2010/tl_2010_#{state_code_to_id(state)}_elsd10.zip")
-          return process_find(shp_file_path, attribute_key, state, name)  
-        else
-          raise NoResourceForYear
+        elsif Concensus::configuration.year == 2011
+          attribute_key = "name"
+          shp_file_path = get_and_unzip("ELSD/tl_2011_#{state_code_to_id(state)}_elsd.zip")
         end
+        
+        return process_find(shp_file_path, attribute_key, state, name)  
       end
 
       def self.find_all(state)
@@ -22,10 +24,12 @@ module Concensus
         if Concensus::configuration.year == 2010
           attribute_key = "NAME10"
           shp_file_path = get_and_unzip("SCSD/2010/tl_2010_#{state_code_to_id(state)}_scsd10.zip")
-          return process_find(shp_file_path, attribute_key, state, name)  
-        else
-          raise NoResourceForYear
+        elsif Concensus::configuration.year == 2011
+          attribute_key = "name"
+          shp_file_path = get_and_unzip("SCSD/tl_2011_#{state_code_to_id(state)}_scsd.zip")
         end
+        
+        return process_find(shp_file_path, attribute_key, state, name)  
       end
 
       def self.find_all(state)
@@ -38,10 +42,12 @@ module Concensus
         if Concensus::configuration.year == 2010
           attribute_key = "NAME10"
           shp_file_path = get_and_unzip("UNSD/2010/tl_2010_#{state_code_to_id(state)}_unsd10.zip")
-          return process_find(shp_file_path, attribute_key, state, name)  
-        else
-          raise NoResourceForYear
+        elsif Concensus::configuration.year == 2011
+          attribute_key = "name"
+          shp_file_path = get_and_unzip("UNSD/tl_2011_#{state_code_to_id(state)}_unsd.zip")
         end
+        
+        return process_find(shp_file_path, attribute_key, state, name)  
       end
 
       def self.find_all(state)
